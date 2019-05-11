@@ -60,7 +60,10 @@ Configure the API to handle to the following routes:
 XX | POST   | /api/posts     | Creates a post using the information sent inside the `request body`.                                                                                                        |
 XX | GET    | /api/posts     | Returns an array of all the post objects contained in the database.                                                                                                         |
 XX | GET    | /api/posts/:id | Returns the post object with the specified id.                                                                                                                              |
-| DELETE | /api/posts/:id | Removes the post with the specified id and returns the **deleted post object**. You may need to make additional calls to the database in order to satisfy this requirement. |
+| DELETE | /api/posts/:id | Removes the post with the specified id and returns the **deleted post object**. You may need to make additional calls to the database in order to satisfy this requirement. 
+            |
+
+
 | PUT    | /api/posts/:id | Updates the post with the specified `id` using data from the `request body`. Returns the modified document, **NOT the original**.                                           |
 
 #### Endpoint Specifications
@@ -98,7 +101,7 @@ XX- If the _post_ with the specified `id` is not found:
   - return HTTP status code `404` (Not Found).
   - return the following JSON object: `{ message: "The post with the specified ID does not exist." }`.
 
-- If there's an error in retrieving the _post_ from the database:
+XX- If there's an error in retrieving the _post_ from the database:
   - cancel the request.
   - respond with HTTP status code `500`.
   - return the following JSON object: `{ error: "The post information could not be retrieved." }`.
