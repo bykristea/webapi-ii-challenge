@@ -57,9 +57,9 @@ Configure the API to handle to the following routes:
 
 | Method | Endpoint       | Description                                                                                                                                                                 |
 | ------ | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| POST   | /api/posts     | Creates a post using the information sent inside the `request body`.                                                                                                        |
+XX | POST   | /api/posts     | Creates a post using the information sent inside the `request body`.                                                                                                        |
 XX | GET    | /api/posts     | Returns an array of all the post objects contained in the database.                                                                                                         |
-** | GET    | /api/posts/:id | Returns the post object with the specified id.                                                                                                                              |
+XX | GET    | /api/posts/:id | Returns the post object with the specified id.                                                                                                                              |
 | DELETE | /api/posts/:id | Removes the post with the specified id and returns the **deleted post object**. You may need to make additional calls to the database in order to satisfy this requirement. |
 | PUT    | /api/posts/:id | Updates the post with the specified `id` using data from the `request body`. Returns the modified document, **NOT the original**.                                           |
 
@@ -69,31 +69,31 @@ When the client makes a `POST` request to `/api/posts`:
 
 - If the request body is missing the `title` or `contents` property:
 
-  - cancel the request.
+ XX - cancel the request.
   - respond with HTTP status code `400` (Bad Request).
   - return the following JSON response: `{ errorMessage: "Please provide title and contents for the post." }`.
 
-- If the information about the _post_ is valid:
+XX- If the information about the _post_ is valid:
 
   - save the new _post_ the the database.
   - return HTTP status code `201` (Created).
   - return the newly created _post_.
 
-- If there's an error while saving the _post_:
+XX- If there's an error while saving the _post_:
   - cancel the request.
   - respond with HTTP status code `500` (Server Error).
   - return the following JSON object: `{ error: "There was an error while saving the post to the database" }`.
 
 When the client makes a `GET` request to `/api/posts`:
 
-- If there's an error in retrieving the _posts_ from the database:
+XX- If there's an error in retrieving the _posts_ from the database:
   - cancel the request.
   - respond with HTTP status code `500`.
   - return the following JSON object: `{ error: "The posts information could not be retrieved." }`.
 
 When the client makes a `GET` request to `/api/posts/:id`:
 
-- If the _post_ with the specified `id` is not found:
+XX- If the _post_ with the specified `id` is not found:
 
   - return HTTP status code `404` (Not Found).
   - return the following JSON object: `{ message: "The post with the specified ID does not exist." }`.
